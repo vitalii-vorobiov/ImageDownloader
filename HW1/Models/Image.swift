@@ -9,17 +9,15 @@
 import Foundation
 
 class Image {
-    let name: String
+    let description: String
     let index: Int
-    let previewURL: URL
-    let downloadURL: URL
+    let downloadURL: String
     
     var downloaded = false
     
-    init(name: String, index: Int, previewURL: URL, downloadURL: URL) {
-        self.name = name
+    init(description: String, downloadURL: String, index: Int) {
+        self.description = description
         self.index = index
-        self.previewURL = previewURL
         self.downloadURL = downloadURL
     }
 }

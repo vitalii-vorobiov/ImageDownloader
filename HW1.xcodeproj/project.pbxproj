@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E71080C5241FF5EA001FB39B /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71080C4241FF5EA001FB39B /* ToDoViewController.swift */; };
+		E71080C7241FF5F7001FB39B /* InProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71080C6241FF5F7001FB39B /* InProgressViewController.swift */; };
+		E71080C9241FF603001FB39B /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71080C8241FF603001FB39B /* DoneViewController.swift */; };
 		E7275E8A241D8C1C008131D4 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7275E89241D8C1C008131D4 /* Image.swift */; };
 		E7275E8C241D8D40008131D4 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7275E8B241D8D40008131D4 /* Download.swift */; };
 		E7275E8E241E2A5A008131D4 /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7275E8D241E2A5A008131D4 /* DownloadManager.swift */; };
@@ -19,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E71080C4241FF5EA001FB39B /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
+		E71080C6241FF5F7001FB39B /* InProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InProgressViewController.swift; sourceTree = "<group>"; };
+		E71080C8241FF603001FB39B /* DoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
 		E7275E89241D8C1C008131D4 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		E7275E8B241D8D40008131D4 /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
 		E7275E8D241E2A5A008131D4 /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
@@ -64,6 +70,9 @@
 			isa = PBXGroup;
 			children = (
 				E7312492241D8287000E01B0 /* ViewController.swift */,
+				E71080C4241FF5EA001FB39B /* ToDoViewController.swift */,
+				E71080C6241FF5F7001FB39B /* InProgressViewController.swift */,
+				E71080C8241FF603001FB39B /* DoneViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -175,8 +184,11 @@
 				E7275E8E241E2A5A008131D4 /* DownloadManager.swift in Sources */,
 				E7312493241D8287000E01B0 /* ViewController.swift in Sources */,
 				E731248F241D8287000E01B0 /* AppDelegate.swift in Sources */,
+				E71080C7241FF5F7001FB39B /* InProgressViewController.swift in Sources */,
 				E7312491241D8287000E01B0 /* SceneDelegate.swift in Sources */,
 				E7275E8C241D8D40008131D4 /* Download.swift in Sources */,
+				E71080C9241FF603001FB39B /* DoneViewController.swift in Sources */,
+				E71080C5241FF5EA001FB39B /* ToDoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

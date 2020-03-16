@@ -63,21 +63,25 @@ class DownloadManager {
           return
         }
         
-        print(result)
+        var index = 0
         
-//        for imageItem in result! {
-//            print(imageItem)
-//          if let description = imageItem["description"]! as? String {
-//              print(description)
-//          } else {
-//            errorMessage += "Problem parsing trackDictionary\n"
-//          }
-//        }
-        
-//        if let description = result?["description"] as? String {
-//            print(description)
-//        } else {
-//            print("Description is empty")
-//        }
+        for imageItem in result! {
+            if let imageItem = imageItem as? JSONImageItem {
+                if let description = imageItem["description"] as? String,
+                let urls = imageItem["urls"] as? Dictionary<String, Any>,
+                let downloadURL = urls["full"] as? String {
+                    images.append(Image(description: description, downloadURL: downloadURL, index: index))
+                    index += 1
+                } else {
+                    if let urls = imageItem["urls"] as? Dictionary<String, Any>,
+                        let downloadURL = urls["full"] as? String {
+                        images.append(Image(description: "No Description", downloadURL: downloadURL, index: index))
+                            index += 1
+                    }
+                }
+            } else {
+                continue
+            }
+        }
     }
 }
