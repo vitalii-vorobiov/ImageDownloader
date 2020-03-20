@@ -9,11 +9,17 @@
 import UIKit
 
 class ToDoViewController: UITableViewController {
-
+    @IBOutlet var tableViewToDo: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        DownloadManager.shared.getRandomImages(amount: 30) { results in
+            self.tableViewToDo.reloadData()
+        }
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return DownloadManager.shared.images.count
     }

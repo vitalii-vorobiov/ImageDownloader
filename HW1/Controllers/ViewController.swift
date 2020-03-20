@@ -13,10 +13,6 @@ class ViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Hello")
-        
-        DownloadManager.shared.getRandomImages(amount: 30) { results in
-        
-        }
     }
 }
 

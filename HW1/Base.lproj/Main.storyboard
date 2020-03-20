@@ -75,6 +75,10 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="ToDo" image="square.and.arrow.down" catalog="system" id="7O1-VC-kEe" userLabel="Item"/>
+                    <connections>
+                        <outlet property="tableView" destination="UTm-U5-beq" id="eNC-Rn-4MN"/>
+                        <outlet property="tableViewToDo" destination="UTm-U5-beq" id="P9E-hs-twd"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rMS-EJ-nNG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
