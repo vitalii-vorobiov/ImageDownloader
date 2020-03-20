@@ -30,7 +30,7 @@ class DownloadManager {
         dataTask?.cancel()
         
         if var urlComponents = URLComponents(string: "https://api.unsplash.com/photos/random") {
-            urlComponents.query = "client_id=\(apiKey)&count=5"
+            urlComponents.query = "client_id=\(apiKey)&count=\(amount%31)"
             
             guard let url = urlComponents.url else {
                 print("Error creating url")
@@ -77,14 +77,16 @@ class DownloadManager {
             if let imageItem = imageItem as? JSONImageItem {
                 if let description = imageItem["description"] as? String,
                 let urls = imageItem["urls"] as? Dictionary<String, Any>,
+                let previewURL = urls["thumb"] as? String,
                 let downloadURL = urls["full"] as? String {
-                    images.append(Image(description: description, downloadURL: downloadURL, index: index))
+                    images.append(Image(description: description, previewURL: URL(string: previewURL)!, downloadURL: URL(string: downloadURL)!, index: index))
                     print(description)
                     index += 1
                 } else {
                     if let urls = imageItem["urls"] as? Dictionary<String, Any>,
+                        let previewURL = urls["thumb"] as? String,
                         let downloadURL = urls["full"] as? String {
-                        images.append(Image(description: "No Description", downloadURL: downloadURL, index: index))
+                        images.append(Image(description: "No Description", previewURL: URL(string: previewURL)!, downloadURL: URL(string: downloadURL)!, index: index))
                         print("No Description")
                         index += 1
                     }

@@ -29,6 +29,7 @@ class ToDoViewController: UITableViewController {
 
         let image = DownloadManager.shared.images[indexPath.row]
         cell.textLabel?.text = image.description
+        cell.imageView?.image = image.previewImage
 
         return cell
     }
