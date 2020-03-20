@@ -9,8 +9,15 @@
 import Foundation
 
 class DownloadManager {
+    
+    static let shared = DownloadManager()
+    
+    private init() {}
+    
     let defaultSession = URLSession(configuration: .default)
     let apiKey = "zl4jUXQCnyYysQ6_lLTmUEOT9J41tS6pQK6SCfqoN50"
+    
+    typealias QueryResult = ([Image]?) -> Void
     
     var dataTask: URLSessionDataTask?
     var errorMessage = ""
@@ -19,11 +26,11 @@ class DownloadManager {
     typealias JSONImageItem = [String: Any]
     typealias JSONImageArray = [Any]
     
-    func getRandomImages(amount: Int) {
+    func getRandomImages(amount: Int, completion: @escaping QueryResult) {
         dataTask?.cancel()
         
         if var urlComponents = URLComponents(string: "https://api.unsplash.com/photos/random") {
-            urlComponents.query = "client_id=\(apiKey)&count=30"
+            urlComponents.query = "client_id=\(apiKey)&count=5"
             
             guard let url = urlComponents.url else {
                 print("Error creating url")
@@ -42,9 +49,10 @@ class DownloadManager {
                     let response = response as? HTTPURLResponse,
                     response.statusCode == 200 {
                     self?.processData(data)
-                } else {
-                    let response = response as? HTTPURLResponse
-                    print(response?.statusCode)
+                    
+                    DispatchQueue.main.async {
+                      completion(self?.images)
+                    }
                 }
             }
             dataTask?.resume()
@@ -71,12 +79,14 @@ class DownloadManager {
                 let urls = imageItem["urls"] as? Dictionary<String, Any>,
                 let downloadURL = urls["full"] as? String {
                     images.append(Image(description: description, downloadURL: downloadURL, index: index))
+                    print(description)
                     index += 1
                 } else {
                     if let urls = imageItem["urls"] as? Dictionary<String, Any>,
                         let downloadURL = urls["full"] as? String {
                         images.append(Image(description: "No Description", downloadURL: downloadURL, index: index))
-                            index += 1
+                        print("No Description")
+                        index += 1
                     }
                 }
             } else {

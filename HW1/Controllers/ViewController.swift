@@ -9,16 +9,14 @@
 import UIKit
 
 class ViewController: UITabBarController {
-
-    let downloadManager = DownloadManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
         print("Hello")
         
-        downloadManager.getRandomImages(amount: 5)
+        DownloadManager.shared.getRandomImages(amount: 30) { results in
+        
+        }
     }
 }
 
